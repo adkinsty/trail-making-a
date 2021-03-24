@@ -104,10 +104,10 @@ function experimentInit() {
   instr_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'instr_text',
-    text: "Using the mouse, connect the targets in sequential order.\n\nAlternate between numbers and letters\nex. 1, A, 2, B ...\n\npress 'space' to continue.",
+    text: "There are numbers in circles on the next page. Please use your mouse to draw a line from one number to the next, in order. Start at 1, then go to 2, then go to 3, and so on. Please try not to take your hand off the mouse as you move from one number to the next. Work as quickly and accurately as you can.\n\nPress 'space' when you are ready to begin.",
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], height: 0.07,  wrapWidth: undefined, ori: 0,
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0,
     color: new util.Color('white'),  opacity: 1,
     depth: 0.0 
   });
@@ -154,7 +154,7 @@ function experimentInit() {
     text: 'default text',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0,
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0,
     color: new util.Color('orange'),  opacity: 1,
     depth: 0.0 
   });
@@ -410,7 +410,7 @@ function trialRoundRoutineBegin(trials) {
     frameN = -1;
     routineTimer.add(0.500000);
     // update component parameters for each repeat
-    trialCount.setText((((loopCounter + 1) + ' of ') + 5));
+    trialCount.setText((((loopCounter + 1) + ' of ') + 1));
     // keep track of which components have finished
     trialRoundComponents = [];
     trialRoundComponents.push(trialCount);
@@ -565,8 +565,8 @@ function trialRoutineBegin(trials) {
         var offset;
         var newX, newY;
     
-        for ( var x = 0.4; x >= -0.4; x -= 0.1) {
-            for ( var y = 0.4; y >= -0.4; y -=0.1 ) {
+        for ( var x = 0.5; x >= -0.5; x -= 0.1) {
+            for ( var y = 0.5; y >= -0.5; y -=0.1 ) {
                 
               // set distance to move the target
               offset = Math.random() * 2 * Math.PI;
