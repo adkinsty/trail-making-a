@@ -614,7 +614,7 @@ function trialRoutineBegin(trials) {
                 depth: -1.0 
               })
         );
-          trialTargetLabels[index].text = parseInt(index, 10)/2 + 1;
+          trialTargetLabels[index].text = parseInt(index, 10) + 1;
     //    if (index % 2 == 0) {
     //        trialTargetLabels[index].text = parseInt(index, 10)/2 + 1;
     //    } else {
