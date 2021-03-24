@@ -570,7 +570,7 @@ function trialRoutineBegin(trials) {
         var newX, newY;
     
         for ( var x = 0.5; x >= -0.5; x -= 0.1) {
-            for ( var y = 0.5; y >= -0.5; y -=0.1 ) {
+            for ( var y = 0.4; y >= -0.4; y -=0.1 ) {
                 
               // set distance to move the target
               offset = Math.random() * 2 * Math.PI;
