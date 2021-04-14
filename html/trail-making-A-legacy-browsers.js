@@ -17,7 +17,7 @@ psychoJS.openWindow({
 
 // store info about the experiment session:
 let expName = 'trail-making-A';  // from the Builder filename that created this script
-let expInfo = {'participant': '', 'group': '', 'survey-url': ''};
+let expInfo = {'participant': ''};
 
 // schedule the experiment:
 psychoJS.schedule(psychoJS.gui.DlgFromDict({
