@@ -97,7 +97,7 @@ var trialMouse;
 var trialCursor;
 var trialEndClock;
 var results;
-var round;
+var round_num;
 var key_resp_2;
 var rngClock;
 var rng_instr;
@@ -170,7 +170,7 @@ function experimentInit() {
     depth: 0.0 
   });
   
-  round = function(num, n=0) {    
+  round_num = function(num, n=0) {    
       return +(Math.round(num + ("e+" + n))  + ("e-" + n));
   }
   key_resp_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -913,7 +913,7 @@ function trialEndRoutineBegin(snapshot) {
     // update component parameters for each repeat
     results.setText('Your time will be displayed here.');
     if ( loopCounter > 0 ) {
-        results.text = "Total time: " + round(trialMouse.time[(trialMouse.time.length - 1)], 2).toString() + " s.\n Press 'space' to continue.";
+        results.text = "Total time: " + round_num(trialMouse.time[(trialMouse.time.length - 1)], 2).toString() + " s.\n Press 'space' to continue.";
     }
     key_resp_2.keys = undefined;
     key_resp_2.rt = undefined;

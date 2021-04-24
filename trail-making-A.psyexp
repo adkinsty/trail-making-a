@@ -199,8 +199,8 @@
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="round = function(num, n=0) {    &amp;#10;    return +(Math.round(num + (&quot;e+&quot; + n))  + (&quot;e-&quot; + n));&amp;#10;}" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if ( loopCounter &gt; 0 ) {&amp;#10;    results.text = &quot;Total time: &quot; + round(trialMouse.time[(trialMouse.time.length - 1)], 2).toString() + &quot; s.\n Press 'space' to continue.&quot;;&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="round_num = function(num, n=0) {    &amp;#10;    return +(Math.round(num + (&quot;e+&quot; + n))  + (&quot;e-&quot; + n));&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ( loopCounter &gt; 0 ) {&amp;#10;    results.text = &quot;Total time: &quot; + round_num(trialMouse.time[(trialMouse.time.length - 1)], 2).toString() + &quot; s.\n Press 'space' to continue.&quot;;&amp;#10;}" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
