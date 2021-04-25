@@ -536,6 +536,7 @@ var step;
 var number_of_targets;
 var allCoordinates;
 var choiceCoordinates;
+var makeLines;
 var waitTime;
 var PrevCursorTargetDistance;
 var data_stimulusXPos;
@@ -657,30 +658,36 @@ function trialRoutineBegin(snapshot) {
               })
         );
           trialTargetLabels[index].text = parseInt(index, 10) + 1;
+    //    if (index % 2 == 0) {
+    //        trialTargetLabels[index].text = parseInt(index, 10)/2 + 1;
+    //    } else {
+    //        trialTargetLabels[index].text = alphaID.next();
+    //    }
     }
     
-    //makeLines = function() {
-    for (var index = 0; index < (choiceCoordinates.length ); index++) {
-        if ( index == 0 ) {
-            trialLines.push(
-                new visual.ShapeStim({ 
-                    win: psychoJS.window,
-                    vertices: [ (0,0), (0,0) ],
-                    opacity: 0,
-                })
-            );
-        } else {
-            trialLines.push(
-                new visual.ShapeStim({ 
-                    win: psychoJS.window,
-                    vertices: [ trialTargets[index-1].pos, trialTargets[index].pos ],
-                    opacity: 0,
-                    lineWidth: 1,
-                })
-            );
+    makeLines = function() {
+        for (var index = 0; index < (choiceCoordinates.length ); index++) {
+            if ( index == 0 ) {
+                trialLines.push(
+                    new visual.ShapeStim({ 
+                        win: psychoJS.window,
+                        vertices: [ (0,0), (0,0) ],
+                        opacity: 0,
+                    })
+                );
+            } else {
+                trialLines.push(
+                    new visual.ShapeStim({ 
+                        win: psychoJS.window,
+                        vertices: [ trialTargets[index-1].pos, trialTargets[index].pos ],
+                        opacity: 0,
+                        lineWidth: 1,
+                    })
+                );
+            }
         }
     }
-    //.call(this);
+    .call(this);
     
     // Function to delay before the the next routine runs
     waitTime = function (t) {
@@ -719,7 +726,7 @@ function trialRoutineBegin(snapshot) {
                 Math.pow( trialCursor.pos[1], 2 )
             );
         }
-    };
+    }
     data_stimulusXPos = [];
     data_stimulusYPos = [];
     data_stimLabels = [];
