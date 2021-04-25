@@ -789,9 +789,9 @@ function trialRoutineEachFrame(snapshot) {
             steps.push(trialStep+0.5);
         } else if ( CursorTargetDistance < trialTargets[trialStep].size[0]/2 ) {
             console.log("in new");
-            trialTargets[trialStep].setOpacity(0);
-            trialTargetLabels[trialStep].setOpacity(0.25);
-            trialLines[trialStep].setOpacity(1);
+            trialTargets[trialStep].opacity = 0;
+            trialTargetLabels[trialStep].opacity = 0.25;
+            trialLines[trialStep].opacity = 1;
             trialStep += 1;
             console.log(trialStep);
             steps.push(trialStep);
