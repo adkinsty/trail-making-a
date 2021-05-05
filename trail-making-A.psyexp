@@ -352,7 +352,6 @@
       <Param name="name" updates="None" val="trials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
-    <Routine name="trialRound"/>
     <Routine name="trial"/>
     <Routine name="trialEnd"/>
     <LoopTerminator name="trials"/>

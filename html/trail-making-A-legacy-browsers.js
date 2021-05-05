@@ -86,8 +86,6 @@ var thisExp;
 var instructionsClock;
 var instr_text;
 var key_resp;
-var trialRoundClock;
-var trialCount;
 var trialClock;
 var trialTargets;
 var trialTargetLabels;
@@ -124,19 +122,6 @@ function experimentInit() {
   });
   
   key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
-  // Initialize components for Routine "trialRound"
-  trialRoundClock = new util.Clock();
-  trialCount = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'trialCount',
-    text: '',
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0,
-    color: new util.Color('white'),  opacity: 1,
-    depth: 0.0 
-  });
   
   // Initialize components for Routine "trial"
   trialClock = new util.Clock();
@@ -414,9 +399,6 @@ function trialsLoopBegin(trialsLoopScheduler) {
     const snapshot = trials.getSnapshot();
 
     trialsLoopScheduler.add(importConditions(snapshot));
-    trialsLoopScheduler.add(trialRoundRoutineBegin(snapshot));
-    trialsLoopScheduler.add(trialRoundRoutineEachFrame(snapshot));
-    trialsLoopScheduler.add(trialRoundRoutineEnd(snapshot));
     trialsLoopScheduler.add(trialRoutineBegin(snapshot));
     trialsLoopScheduler.add(trialRoutineEachFrame(snapshot));
     trialsLoopScheduler.add(trialRoutineEnd(snapshot));
@@ -434,92 +416,6 @@ function trialsLoopEnd() {
   psychoJS.experiment.removeLoop(trials);
 
   return Scheduler.Event.NEXT;
-}
-
-
-var trialRoundComponents;
-function trialRoundRoutineBegin(snapshot) {
-  return function () {
-    //------Prepare to start Routine 'trialRound'-------
-    t = 0;
-    trialRoundClock.reset(); // clock
-    frameN = -1;
-    continueRoutine = true; // until we're told otherwise
-    routineTimer.add(0.500000);
-    // update component parameters for each repeat
-    trialCount.setText((((loopCounter + 1) + " of ") + 1));
-    // keep track of which components have finished
-    trialRoundComponents = [];
-    trialRoundComponents.push(trialCount);
-    
-    trialRoundComponents.forEach( function(thisComponent) {
-      if ('status' in thisComponent)
-        thisComponent.status = PsychoJS.Status.NOT_STARTED;
-       });
-    return Scheduler.Event.NEXT;
-  }
-}
-
-
-var frameRemains;
-function trialRoundRoutineEachFrame(snapshot) {
-  return function () {
-    //------Loop for each frame of Routine 'trialRound'-------
-    // get current time
-    t = trialRoundClock.getTime();
-    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
-    // update/draw components on each frame
-    
-    // *trialCount* updates
-    if (t >= 0.0 && trialCount.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      trialCount.tStart = t;  // (not accounting for frame time here)
-      trialCount.frameNStart = frameN;  // exact frame index
-      
-      trialCount.setAutoDraw(true);
-    }
-
-    frameRemains = 0.0 + 0.5 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
-    if (trialCount.status === PsychoJS.Status.STARTED && t >= frameRemains) {
-      trialCount.setAutoDraw(false);
-    }
-    // check for quit (typically the Esc key)
-    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
-      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
-    }
-    
-    // check if the Routine should terminate
-    if (!continueRoutine) {  // a component has requested a forced-end of Routine
-      return Scheduler.Event.NEXT;
-    }
-    
-    continueRoutine = false;  // reverts to True if at least one component still running
-    trialRoundComponents.forEach( function(thisComponent) {
-      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
-        continueRoutine = true;
-      }
-    });
-    
-    // refresh the screen if continuing
-    if (continueRoutine && routineTimer.getTime() > 0) {
-      return Scheduler.Event.FLIP_REPEAT;
-    } else {
-      return Scheduler.Event.NEXT;
-    }
-  };
-}
-
-
-function trialRoundRoutineEnd(snapshot) {
-  return function () {
-    //------Ending Routine 'trialRound'-------
-    trialRoundComponents.forEach( function(thisComponent) {
-      if (typeof thisComponent.setAutoDraw === 'function') {
-        thisComponent.setAutoDraw(false);
-      }
-    });
-    return Scheduler.Event.NEXT;
-  };
 }
 
 
