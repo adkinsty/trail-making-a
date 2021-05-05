@@ -86,8 +86,7 @@ function updateInfo() {
 
   // add info from the URL:
   util.addInfoFromUrl(expInfo);
-  psychoJS.setRedirectUrls(((((expInfo['survey-url'] + '?id=') + expInfo['participant']) + '&group=') + expInfo['group']), ((((expInfo['survey-url'] + '?id=') + expInfo['participant']) + '&group=') + expInfo['group']));
-
+  
   return Scheduler.Event.NEXT;
 }
 

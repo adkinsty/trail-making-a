@@ -3,7 +3,7 @@
   <Settings>
     <Param name="Audio latency priority" updates="None" val="use prefs" valType="str"/>
     <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
-    <Param name="Completed URL" updates="None" val="$expInfo['survey-url']+&quot;?id=&quot;+expInfo['participant']+&quot;&amp;group=&quot;+expInfo['group']" valType="str"/>
+    <Param name="Completed URL" updates="None" val="" valType="str"/>
     <Param name="Data file delimiter" updates="None" val="auto" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
@@ -11,7 +11,7 @@
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="html" valType="str"/>
-    <Param name="Incomplete URL" updates="None" val="$expInfo['survey-url']+&quot;?id=&quot;+expInfo['participant']+&quot;&amp;group=&quot;+expInfo['group']" valType="str"/>
+    <Param name="Incomplete URL" updates="None" val="" valType="str"/>
     <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
     <Param name="Resources" updates="None" val="[]" valType="fileList"/>
     <Param name="Save csv file" updates="None" val="False" valType="bool"/>
